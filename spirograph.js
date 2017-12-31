@@ -94,13 +94,49 @@ function drawGraph(choice)
                         }
                     }
                 }
+                else if(choice===7)
+                {
+                    var xorig = x;
+                    if(x>=-500 && x<0)
+                    {
+                        var y = x;
+                        if(y>-250)
+                        {
+                            y = -250;
+                        }
+                        else{
+                            x = 0;
+                            y = 0;
+                        }
+                    }
+                    else
+                    {
+                        var y = -x;
+                        if(y>-250)
+                        {
+                            y = -250;
+                        }
+                        else{
+                            x = 0;
+                            y = 0;
+                        }
+                    }
+                }
+                else if(choice===8)
+                {
+                    var y = 250;
+                }
                 var xnew = Math.round(x*Math.cos(theeta)+y*Math.sin(theeta))+width/2;
                 var ynew = Math.round(y*Math.cos(theeta)-x*Math.sin(theeta))+height/2;
                 ctx.fillRect(xnew,ynew,3,3);
+                if(choice===7)
+                {
+                    x = xorig;
+                }
             }
         }
         console.log('done!');
     }    
 }
 drawaxes();
-drawGraph(6);
+drawGraph(5);
